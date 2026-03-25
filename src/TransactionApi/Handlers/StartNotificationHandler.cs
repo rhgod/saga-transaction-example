@@ -2,7 +2,7 @@ using Rebus.Bus;
 using Rebus.Handlers;
 using Shared.Messages;
 
-namespace Workflow.Api.Handlers;
+namespace TransactionApi.Handlers;
 
 public class StartNotificationHandler(IBus bus, ILogger<StartNotificationHandler> logger)
     : IHandleMessages<StartNotification>

@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Rebus.Bus;
 using Shared.Messages;
 
-namespace Gateway.Api.Controllers;
+namespace TransactionGateway.Controllers;
 
 [ApiController]
 [Route("[controller]")]

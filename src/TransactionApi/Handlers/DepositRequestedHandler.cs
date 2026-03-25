@@ -2,7 +2,7 @@ using Rebus.Bus;
 using Rebus.Handlers;
 using Shared.Messages;
 
-namespace Workflow.Api.Handlers;
+namespace TransactionApi.Handlers;
 
 public class DepositRequestedHandler(IBus bus, ILogger<DepositRequestedHandler> logger)
     : IHandleMessages<DepositRequested>

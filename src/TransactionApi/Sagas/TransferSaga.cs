@@ -3,7 +3,7 @@ using Rebus.Handlers;
 using Rebus.Sagas;
 using Shared.Messages;
 
-namespace Workflow.Api.Sagas;
+namespace TransactionApi.Sagas;
 
 public class TransferSaga(IBus bus, ILogger<TransferSaga> logger)
     : Saga<TransferSagaData>,

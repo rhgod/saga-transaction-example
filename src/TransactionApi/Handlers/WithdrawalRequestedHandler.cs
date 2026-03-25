@@ -2,7 +2,7 @@ using Rebus.Bus;
 using Rebus.Handlers;
 using Shared.Messages;
 
-namespace Workflow.Api.Handlers;
+namespace TransactionApi.Handlers;
 
 public class WithdrawalRequestedHandler(IBus bus, ILogger<WithdrawalRequestedHandler> logger)
     : IHandleMessages<WithdrawalRequested>

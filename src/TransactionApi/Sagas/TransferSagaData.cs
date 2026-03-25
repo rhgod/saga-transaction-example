@@ -1,6 +1,6 @@
 using Rebus.Sagas;
 
-namespace Workflow.Api.Sagas;
+namespace TransactionApi.Sagas;
 
 public class TransferSagaData : SagaData
 {
