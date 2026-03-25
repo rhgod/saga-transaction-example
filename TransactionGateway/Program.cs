@@ -7,8 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 builder.Services.AddRebus(configure => configure
-    .Transport(t => t.UseRabbitMq("amqp://guest:guest@localhost/", "gateway-api"))
-    .Routing(r => r.TypeBased().Map<StartTransfer>("workflow-api"))
+    .Transport(t => t.UseRabbitMq("amqp://guest:guest@localhost/", "transactionGateway"))
+    .Routing(r => r.TypeBased().Map<StartTransfer>("transactionApi"))
 );
 
 var app = builder.Build();
