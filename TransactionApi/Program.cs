@@ -9,15 +9,15 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AutoRegisterHandlersFromAssemblyOf<Program>();
 
 builder.Services.AddRebus(configure => configure
-    .Transport(t => t.UseRabbitMq("amqp://guest:guest@localhost/", "workflow-api"))
+    .Transport(t => t.UseRabbitMq("amqp://guest:guest@localhost/", "transactionApi"))
     .Sagas(s => s.StoreInMemory())
     .Routing(r => r.TypeBased()
-        .Map<WithdrawalRequested>("workflow-api")
-        .Map<DepositRequested>("workflow-api")
-        .Map<StartNotification>("workflow-api")
-        .Map<WithdrawalCompleted>("workflow-api")
-        .Map<DepositCompleted>("workflow-api")
-        .Map<NotificationCompleted>("workflow-api"))
+        .Map<WithdrawalRequested>("transactionApi")
+        .Map<DepositRequested>("transactionApi")
+        .Map<StartNotification>("transactionApi")
+        .Map<WithdrawalCompleted>("transactionApi")
+        .Map<DepositCompleted>("transactionApi")
+        .Map<NotificationCompleted>("transactionApi"))
 );
 
 var app = builder.Build();
