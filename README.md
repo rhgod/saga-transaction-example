@@ -11,21 +11,23 @@ SAGA pattern demo using .NET 8 microservices and RabbitMQ messaging.
 
 ## Proje Yapısı
 
-Her servis tamamen bağımsızdır; ortak kütüphane yoktur. Her servis kendi mesaj kontratlarını kendi içinde tanımlar.
+Her servis tamamen bağımsızdır; ortak kütüphane yoktur. Her servis kendi mesaj kontratlarını kendi içinde tanımlar. Her projenin kendi `.gitignore` dosyası vardır.
 
 ```
-src/
-  TransactionGateway/
-    TransactionGateway.slnx      – Bağımsız solution
-    TransactionGateway.csproj    – HTTP alır, mesaj publish eder (queue: gateway-api)
-    Messages/                    – Sadece bu servisin publish ettiği kontratlar
-    Controllers/
-  TransactionApi/
-    TransactionApi.slnx          – Bağımsız solution
-    TransactionApi.csproj        – Mesajları consume eder, SAGA'ları yönetir (queue: workflow-api)
-    Messages/                    – Bu servisin işlediği tüm kontratlar
-    Sagas/
-    Handlers/
+TransactionGateway/              – Bağımsız .NET Web API
+  .gitignore
+  TransactionGateway.slnx
+  TransactionGateway.csproj      – HTTP alır, mesaj publish eder (queue: gateway-api)
+  Messages/                      – Sadece bu servisin publish ettiği kontratlar
+  Controllers/
+
+TransactionApi/                  – Bağımsız .NET Web API
+  .gitignore
+  TransactionApi.slnx
+  TransactionApi.csproj          – Mesajları consume eder, SAGA'ları yönetir (queue: workflow-api)
+  Messages/                      – Bu servisin işlediği tüm kontratlar
+  Sagas/
+  Handlers/
 ```
 
 ## Gereksinimler
@@ -43,10 +45,10 @@ docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management
 
 ```bash
 # 1. TransactionApi'yi başlat (önce)
-dotnet run --project src/TransactionApi/TransactionApi.csproj
+dotnet run --project TransactionApi/TransactionApi.csproj
 
 # 2. TransactionGateway'i başlat (ayrı terminalde)
-dotnet run --project src/TransactionGateway/TransactionGateway.csproj
+dotnet run --project TransactionGateway/TransactionGateway.csproj
 
 # 3. Transfer isteği gönder
 curl -X POST http://localhost:5236/transfer \
