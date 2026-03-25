@@ -1,6 +1,6 @@
 using Rebus.Bus;
 using Rebus.Handlers;
-using Shared.Messages;
+using TransactionApi.Messages;
 
 namespace TransactionApi.Handlers;
 

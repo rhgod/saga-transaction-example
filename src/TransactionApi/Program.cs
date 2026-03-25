@@ -2,7 +2,7 @@ using Rebus.Config;
 using Rebus.Persistence.InMem;
 using Rebus.Routing.TypeBased;
 using Rebus.ServiceProvider;
-using Shared.Messages;
+using TransactionApi.Messages;
 
 var builder = WebApplication.CreateBuilder(args);
 

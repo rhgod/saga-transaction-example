@@ -1,7 +1,0 @@
-<Solution>
-  <Folder Name="/src/">
-    <Project Path="src/Shared/Shared.csproj" />
-    <Project Path="src/TransactionApi/TransactionApi.csproj" />
-    <Project Path="src/TransactionGateway/TransactionGateway.csproj" />
-  </Folder>
-</Solution>

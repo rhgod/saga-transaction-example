@@ -1,6 +1,6 @@
 using Rebus.Config;
 using Rebus.Routing.TypeBased;
-using Shared.Messages;
+using TransactionGateway.Messages;
 
 var builder = WebApplication.CreateBuilder(args);
 

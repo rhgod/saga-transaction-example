@@ -1,4 +1,4 @@
-namespace Shared.Messages;
+namespace TransactionApi.Messages;
 
 public record StartTransfer(Guid SagaId, int From, int To, decimal Amount);
 

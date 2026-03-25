@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Rebus.Bus;
-using Shared.Messages;
+using TransactionGateway.Messages;
 
 namespace TransactionGateway.Controllers;
 

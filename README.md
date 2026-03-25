@@ -11,15 +11,21 @@ SAGA pattern demo using .NET 8 microservices and RabbitMQ messaging.
 
 ## Proje Yapısı
 
+Her servis tamamen bağımsızdır; ortak kütüphane yoktur. Her servis kendi mesaj kontratlarını kendi içinde tanımlar.
+
 ```
 src/
-  Shared/                        – Paylaşılan mesaj tipleri (StartTransfer, WithdrawalRequested, vb.)
   TransactionGateway/
-    TransactionGateway.slnx      – Ayrı solution
+    TransactionGateway.slnx      – Bağımsız solution
     TransactionGateway.csproj    – HTTP alır, mesaj publish eder (queue: gateway-api)
+    Messages/                    – Sadece bu servisin publish ettiği kontratlar
+    Controllers/
   TransactionApi/
-    TransactionApi.slnx          – Ayrı solution
+    TransactionApi.slnx          – Bağımsız solution
     TransactionApi.csproj        – Mesajları consume eder, SAGA'ları yönetir (queue: workflow-api)
+    Messages/                    – Bu servisin işlediği tüm kontratlar
+    Sagas/
+    Handlers/
 ```
 
 ## Gereksinimler

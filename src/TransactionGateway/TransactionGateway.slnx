@@ -1,4 +1,3 @@
 <Solution>
-  <Project Path="../Shared/Shared.csproj" />
   <Project Path="TransactionGateway.csproj" />
 </Solution>

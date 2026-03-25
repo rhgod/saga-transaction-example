@@ -1,4 +1,4 @@
-namespace Shared.Messages;
+namespace TransactionApi.Messages;
 
 public record StartNotification(Guid SagaId, string Text);
 
